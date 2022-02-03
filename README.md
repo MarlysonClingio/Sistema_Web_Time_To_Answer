@@ -1,10 +1,8 @@
 <h1>Sistema Web Time to Answer</h1>
 
 <h3>Objetivo</h3>
-Projeto Final realizado no Curso de "Ruby on Rails 5.x - Do início ao fim!" com o Professor "Jackson Pires" da Plataforma "Udemy", com o intuito de finalizar de forma prática as informações tratadas no decorrer de todo o curso, se aprofundar no framework Rails e aprender algumas técnicas e resoluções de problemas corriqueiros no desenvolvimento de uma aplicação. O Sistema envolve uma aplicação para responder questões de concursos, com cadastro de usuários e de Administradores e suas respectivas telas de acesso ao sistema.
+Projeto Final realizado no Curso de "Ruby on Rails 5.x - Do início ao fim!" com o Professor "Jackson Pires" da Plataforma "Udemy", com o intuito de finalizar de forma prática as informações tratadas no decorrer de todo o curso, se aprofundar no framework Rails e aprender algumas técnicas e resoluções de problemas corriqueiros no desenvolvimento de uma aplicação. O Sistema envolve uma aplicação para responder questões de concursos, com cadastro de usuários e de Administradores e suas respectivas telas de acesso ao sistema. Conhecimentos obtidos:
 <br>
-
-Conhecimentos obtidos:
 
 <br>
 • Linguagem de Programação Ruby<br>
@@ -30,3 +28,4 @@ Conhecimentos obtidos:
 •	Microsoft Visual Studio Code 1.63.2<br>
 •	Ubuntu 18.04 LTS<br>
 •	Vagrant 2.2.19<br>
+•	Templates bootstrap: Gentelella Alela Admin(https://colorlib.com/polygon/gentelella/) e SB Admin 2(https://startbootstrap.com/template-overviews/sb-admin-2/)<br>

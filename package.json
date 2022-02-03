@@ -1,5 +1,18 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "bootstrap": "4.6.0",
+    "font-awesome": "^4.6.3",
+    "jquery": "3.6.0",
+    "jquery-easing": "^0.0.1",
+    "metismenu": "3.0.3",
+    "popper.js": "1.16.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MarlysonClingio/Sistema_Web_Time_To_Answer.git",
+  "author": "Marlyson Clingio <marlysonalmeida@gmail.com>",
+  "license": "MIT"
 }
