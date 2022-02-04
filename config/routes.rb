@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     get 'welcome/index'
   end
   namespace :admins_backoffice do
-    get 'welcome/index'
+    get 'welcome/index' # Dashboards
+    resources :admins, only: [:index, :edit] # Administradores
   end
   namespace :users_backoffice do
     get 'welcome/index'
