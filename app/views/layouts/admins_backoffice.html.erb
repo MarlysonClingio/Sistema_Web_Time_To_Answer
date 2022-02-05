@@ -21,10 +21,6 @@
       <div class="main_container">
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-                <a class="site_title">Administração</a>
-            </div>
-
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
@@ -54,6 +50,11 @@
                   <li>
                     <%= link_to admins_backoffice_admins_path do %>
                       <i class="fa fa-users"></i> Administradores
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <i class="fa fa-graduation-cap"></i> Assuntos/Áreas
                     <% end %>
                   </li>
                 </ul>
@@ -98,7 +99,19 @@
         <!-- /page content -->
       </div>
     </div>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admins_backoffice' %>
+
+    <% if notice %>
+      <% javascript_tag do %>
+        $.bootstrapGrowl("<%= notice %>", {
+          type: 'success', // (null, 'info', 'danger', 'success')
+          align: 'right', // ('left', 'right', or 'center')
+          allow_dismiss: true, // If true then will display a cross to close the popup.
+          stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      <% end %>
+    <% end %>
   </body>
 </html>

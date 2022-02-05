@@ -1,104 +1,15 @@
 <center>
+	<a>
+		<%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle btn-sm" do %>
+			<strong>Adicionar Administrador</strong>&ensp;
+			<i class="fa fa-plus"></i>
+		<% end %>
+	</a>
+	<hr>
 	<h2>Lista de Administradores</h2>
 <center>
 
-<div class="table">
-	<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-		<div class="row">
-			<div class="col-sm-12">
-				<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="" aria-describedby="dataTable_info" style="width: 100%;">
-					<thead>
-						<tr role="row">
-							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 57px;">Name</th>
-							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 60px;">Position</th>
-							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 50px;">Office</th>
-							<th cl6ass="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Age</th>
-							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 72px;">Start date</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="odd">
-							<td class="sorting_1">Airi Satou</td>
-							<td>Accountant</td>
-							<td>Tokyo</td>
-							<td>33</td>
-							<td>2008/11/28</td>
-						</tr>
-						<tr class="even">
-							<td class="sorting_1">Angelica Ramos</td>
-							<td>Chief Executive Officer (CEO)</td>
-							<td>London</td>
-							<td>47</td>
-							<td>2009/10/09</td>
-						</tr>
-						<tr class="odd">
-							<td class="sorting_1">Ashton Cox</td>
-							<td>Junior Technical Author</td>
-							<td>San Francisco</td>
-							<td>66</td>
-							<td>2009/01/12</td>
-						</tr>
-						<tr class="even">
-							<td class="sorting_1">Bradley Greer</td>
-							<td>Software Engineer</td>
-							<td>London</td>
-							<td>41</td>
-							<td>2012/10/13</td>
-						</tr>
-						<tr class="odd">
-							<td class="sorting_1">Brenden Wagner</td>
-							<td>Software Engineer</td>
-							<td>San Francisco</td>
-							<td>28</td>
-							<td>2011/06/07</td>
-						</tr>
-						<tr class="even">
-							<td class="sorting_1">Brielle Williamson</td>
-							<td>Integration Specialist</td>
-							<td>New York</td>
-							<td>61</td>
-							<td>2012/12/02</td>
-						</tr>
-						<tr class="odd">
-							<td class="sorting_1">Bruno Nash</td>
-							<td>Software Engineer</td>
-							<td>London</td>
-							<td>38</td>
-							<td>2011/05/03</td>
-						</tr>
-						<tr class="even">
-							<td class="sorting_1">Caesar Vance</td>
-							<td>Pre-Sales Support</td>
-							<td>New York</td>
-							<td>21</td>
-							<td>2011/12/12</td>
-						</tr>
-						<tr class="odd">
-							<td class="sorting_1">Cara Stevens</td>
-							<td>Sales Assistant</td>
-							<td>New York</td>
-							<td>46</td>
-							<td>2011/12/06</td>
-						</tr>
-						<tr class="even">
-							<td class="sorting_1">Cedric Kelly</td>
-							<td>Senior Javascript Developer</td>
-							<td>Edinburgh</td>
-							<td>22</td>
-							<td>2012/03/29</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div>
-
 <th>
-
-<center>
-	<h2>Editar ou Deletar</h2>
-<center>
 
 <div class="table">
 	<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -109,7 +20,7 @@
 						<tr role="row">
 							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 57px;">ID</th>
 							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Email: activate to sort column descending" style="width: 57px;">Email</th>
-							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 10px;">Action</th>
+							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 10px;">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -123,14 +34,18 @@
 											<i class="fa fa-edit"></i>
 										<% end %>
 									</a>
-									<a href="#" class="btn btn-danger btn-circle btn-sm">
-										<i class="fa fa-trash"></i>
+									&ensp;
+									<a>
+										<%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle btn-sm", data: {confirm: "Deseja realmente deletar?"}  do %>
+											<i class="fa fa-trash"></i>
+										<% end %>
 									</a>
 								</td>
 							</tr>
 						<% end %>
 					</tbody>
 				</table>
+				<%= paginate @admins %>
 			</div>
 		</div>
 	</div>
