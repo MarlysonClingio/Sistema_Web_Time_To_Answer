@@ -53,8 +53,13 @@
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to "#" do %>
+                    <%= link_to admins_backoffice_subjects_path do %>
                       <i class="fa fa-graduation-cap"></i> Assuntos/Áreas
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to admins_backoffice_questions_path do %>
+                      <i class="fa fa-tasks"></i> Perguntas
                     <% end %>
                   </li>
                 </ul>
@@ -104,14 +109,14 @@
     <%= javascript_include_tag 'admins_backoffice' %>
 
     <% if notice %>
-      <% javascript_tag do %>
+      <script>
         $.bootstrapGrowl("<%= notice %>", {
           type: 'success', // (null, 'info', 'danger', 'success')
-          align: 'right', // ('left', 'right', or 'center')
+          align: 'center', // ('left', 'right', or 'center')
           allow_dismiss: true, // If true then will display a cross to close the popup.
           stackup_spacing: 10 // spacing between consecutively stacked growls.
         });
-      <% end %>
+      </script>
     <% end %>
   </body>
 </html>

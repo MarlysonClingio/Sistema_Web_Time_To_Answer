@@ -1,0 +1,55 @@
+<center>
+	<a>
+		<%= link_to new_admins_backoffice_question_path, class:"btn btn-success btn-circle btn-sm" do %>
+			<strong>Adicionar Perguntas</strong>&ensp;
+			<i class="fa fa-plus"></i>
+		<% end %>
+	</a>
+	<hr>
+	<h2>Lista de Perguntas</h2>
+<center>
+
+<th>
+
+<div class="table">
+	<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+					<thead>
+						<tr role="row">
+							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 57px;">ID</th>
+							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Email: activate to sort column descending" style="width: 57px;">Descrição</th>
+							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Email: activate to sort column descending" style="width: 57px;">Assunto / Área</th>
+							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 10px;">Ações</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<% @questions.each do |question| %>
+							<tr class="odd">
+								<td class="sorting_1"><%= question.id %></td>
+								<td><%= question.description.truncate(50) %></td>
+								<td><%= question.subject.description %></td>
+								<td style="text-align: center">
+									<a>
+										<%= link_to edit_admins_backoffice_question_path(question), class:"btn btn-primary btn-circle btn-sm" do %>
+											<i class="fa fa-edit"></i>
+										<% end %>
+									</a>
+									&ensp;
+									<a>
+										<%= link_to admins_backoffice_question_path(question), method: :delete, class:"btn btn-danger btn-circle btn-sm", data: {confirm: "Deseja realmente deletar?"}  do %>
+											<i class="fa fa-trash"></i>
+										<% end %>
+									</a>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<%= paginate @questions %>
+			</div>
+		</div>
+	</div>
+</div>

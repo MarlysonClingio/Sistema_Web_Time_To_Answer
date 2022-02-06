@@ -1,0 +1,48 @@
+<center>
+    <h2><%= action_question %></h2>
+<center>
+
+<% if @question.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <ul>
+            <% @question.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<div class="x_panel">
+    <div class="x_content" style="display: block;">
+        <br>
+        <%= form_with(model: [:admins_backoffice, @question ], local: true) do |form| %>
+            <div class="item form-group">
+                <%= form.label :description, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+                <span class="required">*</span>
+                <div class="col-md-6 col-sm-6 ">
+                    <%= form.text_area :description, required:"required", class:"form-control", rows: 5 %>
+                </div>
+            </div>
+            <div class="item form-group">
+                <%= form.label :subject_id, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+                <span class="required">*</span>
+                <div class="col-md-6 col-sm-6 ">
+                    <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, {required:"required", class:"form-control"}) %>
+                </div>
+            </div>
+            <div class="ln_solid"></div>
+            <div class="item form-group">
+                <div class="col-md-12 col-sm-6 offset-md-3">
+                    <%= link_to admins_backoffice_questions_path, class:"btn btn-danger", type:"button" do %>
+					    Cancelar
+					<% end %>
+                    <button class="btn btn-primary" type="reset">Resetar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,17 +37,32 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 
+# Outras gems
 gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
 gem 'kaminari'
 gem 'kaminari-i18n'
-
+gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'racc', '1.4.6'
+gem 'nokogiri', '1.8.5'
+gem 'globalid', '0.4.1'
+gem 'matrix', '~> 0.0.1'
+gem 'sprockets-rails', '3.2.1'
+gem 'selenium-webdriver', '3.14.1'
+gem 'capybara', '~> 3.10.0'
+gem "cocoon"
+# gem 'prawn-rails'
+gem 'redis'
+gem 'hiredis'
+gem 'trix'
+gem 'searchkick'
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'rails_db', '2.0.4'
 end
 
 group :development do
@@ -57,15 +72,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'awesome_print'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  # gem 'capybara', '>= 2.15'
+  # gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data'

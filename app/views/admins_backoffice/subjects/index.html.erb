@@ -1,0 +1,52 @@
+<center>
+	<a>
+		<%= link_to new_admins_backoffice_subject_path, class:"btn btn-success btn-circle btn-sm" do %>
+			<strong>Adicionar Assuntos / Áreas</strong>&ensp;
+			<i class="fa fa-plus"></i>
+		<% end %>
+	</a>
+	<hr>
+	<h2>Lista de Assuntos / Áreas</h2>
+<center>
+
+<th>
+
+<div class="table">
+	<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+					<thead>
+						<tr role="row">
+							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 57px;">ID</th>
+							<th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Email: activate to sort column descending" style="width: 57px;">Descrição</th>
+							<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 10px;">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @subjects.each do |subject| %>
+							<tr class="odd">
+								<td class="sorting_1"><%= subject.id %></td>
+								<td><%= subject.description %></td>
+								<td style="text-align: center">
+									<a>
+										<%= link_to edit_admins_backoffice_subject_path(subject), class:"btn btn-primary btn-circle btn-sm" do %>
+											<i class="fa fa-edit"></i>
+										<% end %>
+									</a>
+									&ensp;
+									<a>
+										<%= link_to admins_backoffice_subject_path(subject), method: :delete, class:"btn btn-danger btn-circle btn-sm", data: {confirm: "Deseja realmente deletar?"}  do %>
+											<i class="fa fa-trash"></i>
+										<% end %>
+									</a>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<%= paginate @subjects %>
+			</div>
+		</div>
+	</div>
+</div>
