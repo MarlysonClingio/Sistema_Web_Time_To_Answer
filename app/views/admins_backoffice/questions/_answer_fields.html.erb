@@ -1,0 +1,12 @@
+<center>
+    <div class="nested-fields">
+        <br>
+        <%= f.label :description %>
+        <br>
+        <%= f.text_field :description %>
+        <br><br>
+        <%= f.check_box :correct %> Selecione se essa for a resposta correta
+        <br><br>
+        <%= link_to_remove_association('[Remover essa resposta]', f)%>
+    </div>
+<center>

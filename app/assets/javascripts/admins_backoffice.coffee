@@ -10,3 +10,4 @@
 //= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
 //= require custom
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
+//= require cocoon

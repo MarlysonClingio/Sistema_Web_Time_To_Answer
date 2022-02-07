@@ -28,4 +28,5 @@ Projeto Final realizado no Curso de "Ruby on Rails 5.x - Do início ao fim!" com
 •	Microsoft Visual Studio Code 1.63.2<br>
 •	Ubuntu 18.04 LTS<br>
 •	Vagrant 2.2.19<br>
-•	Template bootstrap Gentelella Alela Admin(https://colorlib.com/polygon/gentelella/)<br>
+•	Bootstrap 3.3.7<br>
+•	Template Gentelella Alela Admin(https://colorlib.com/polygon/gentelella/)<br>
