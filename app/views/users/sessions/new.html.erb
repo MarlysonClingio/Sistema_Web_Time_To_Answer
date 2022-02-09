@@ -14,7 +14,11 @@
             <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
           </div>
-          <%= f.submit "Entrar", class:"btn btn-default submit", style:"float: none; margin-left: 0px;" %>
+          <div>
+            <%= f.submit "Entrar", class:"btn btn-default submit", style:"float: none; margin-left: 0px;" %>
+          </div>
+          <br>
+            <%= link_to 'Esqueceu sua senha?', new_user_password_path, class:"reset_pass" %>
         <% end %>
       </section>
     </div>

@@ -47,12 +47,17 @@
                 <ul class="nav side-menu">
                   <li>
                     <%= link_to users_backoffice_welcome_index_path do %>
-                      <i class="fa fa-home"></i> Home
+                      <i class="fa fa-comments-o"></i> Perguntas/Respostas
                     <% end %>
                   </li>
                   <li>
                     <%= link_to users_backoffice_profile_path do %>
                       <i class="fa fa-user"></i> Dados do Perfil
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to root_path do %>
+                      <i class="fa fa-home"></i> Voltar para Home
                     <% end %>
                   </li>
                 </ul>

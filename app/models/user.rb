@@ -6,9 +6,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  
+  after_create :set_statistic
+  
   validates :firt_name, presence: true, length: { minimum: 4 }, on: :update
 
   def full_name
     [self.firt_name, self.last_name].join(' ')
+  end
+
+  private
+  def set_statistic
+    AdminStatistic.set_event(AdminStatistic::EVENTS[:total_users])
   end
 end
