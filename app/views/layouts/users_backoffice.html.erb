@@ -26,16 +26,19 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <%= image_tag 'user.png', alt:"...", class:"img-circle profile_img" %>
+                <%= link_to image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarMd"), "#", "data-toggle":"modal", "data-target":"#userModal" %>
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2><%= current_user.email %></h2>
+                <span>Seja bem-vindo</span>
+                <% if current_user.full_name == " " %>
+                  <h2><%= current_user.email %></h2>
+                <% else %>
+                  <h2><%= current_user.full_name %></h2>
+                <% end %>
               </div>
             </div>
-            <!-- /menu profile quick info -->
-
             <br />
+            <!-- /menu profile quick info -->
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -44,12 +47,12 @@
                 <ul class="nav side-menu">
                   <li>
                     <%= link_to users_backoffice_welcome_index_path do %>
-                      <i class="fa fa-bar-chart"></i> Dashboards
+                      <i class="fa fa-home"></i> Home
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to "#" do %>
-                      <i class="fa fa-users"></i> Usuários
+                    <%= link_to users_backoffice_profile_path do %>
+                      <i class="fa fa-user"></i> Dados do Perfil
                     <% end %>
                   </li>
                 </ul>
@@ -70,8 +73,8 @@
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <center>
                       <a class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                        <%= image_tag 'user.png', alt:"" %>
-                        <%= current_user.email %>
+                        <%= image_tag avatar_url, id:"imgAvatarSm" %>
+                        <%= current_user.full_name %>
                       </a>
                     <center>
                     <a>
@@ -95,18 +98,47 @@
       </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <%= form_with(url: users_backoffice_profile_path, model: current_user, class:"form-horizontal form-left") do |form| %>
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="userModalLabel">Alterar foto de perfil</h4>
+            </div>
+            <div class="modal-body">
+              <%= form.fields_for :user_profile do |profile_form| %>
+                <div class="item form-group">
+                  <div>
+                    <%= image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarLg")%>
+                    <br><br>
+                    <%= profile_form.file_field :avatar %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              <%= form.submit "Salvar", class:"btn btn-primary" %>
+            </div>
+          <% end  %>
+        </div>
+      </div>
+    </div>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admins_backoffice' %>
 
     <% if notice %>
-      <% javascript_tag do %>
+      <script>
         $.bootstrapGrowl("<%= notice %>", {
           type: 'success', // (null, 'info', 'danger', 'success')
-          align: 'right', // ('left', 'right', or 'center')
+          align: 'center', // ('left', 'right', or 'center')
           allow_dismiss: true, // If true then will display a cross to close the popup.
           stackup_spacing: 10 // spacing between consecutively stacked growls.
         });
-      <% end %>
+      </script>
     <% end %>
   </body>
 </html>
